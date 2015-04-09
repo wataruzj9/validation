@@ -121,3 +121,14 @@ public @interface UserId {
 		}
 	}
 }
+
+
+
+		if(violations.size() > 0){
+			for (ConstraintViolation<MaxAndMin> violation : violations) {
+				System.out.println(violation.getMessage()); //多言語化した後の実メッセージ
+//				System.out.println(violation.geltMessageTemplate()); // メッセージのキー（プロパティファイルに当てるときの値）
+//				System.out.println(violation.getInvalidValue()); // 実際に、画面でユーザが入れた都下の値
+//				System.out.println(violation.getPropertyPath()); // DTOとかのjavaのフィールド名
+			}
+		}
