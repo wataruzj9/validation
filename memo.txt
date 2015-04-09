@@ -66,3 +66,58 @@ public @interface NotNullAndSize10 {
         NotNullAndSize10[] value();
     }
 }
+
+
+package jp.co.softbank.salesscm.common.validation.anotation;
+
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.CONSTRUCTOR;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import javax.validation.Constraint;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+import javax.validation.Payload;
+
+import jp.co.softbank.salesscm.common.validation.anotation.UserId.UserIdValidator;
+
+@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Retention(RUNTIME)
+@Documented
+@Constraint(validatedBy = { UserIdValidator.class })
+public @interface UserId {
+	Class<?>[] groups() default {};
+
+	String message() default "{custum.validation.message.userid}";
+
+	Class<? extends Payload>[] payload() default {};
+
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		UserId[] value();
+	}
+
+	class UserIdValidator implements ConstraintValidator<UserId, String> {
+
+		@Override
+		public void initialize(UserId userId) {
+		}
+
+		@Override
+		public boolean isValid(String id, ConstraintValidatorContext context) {
+			if (id != null && id.startsWith("A")) {
+				return true;
+			}
+			return false;
+		}
+	}
+}
