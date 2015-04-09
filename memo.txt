@@ -123,6 +123,12 @@ public @interface UserId {
 }
 
 
+        MaxAndMin bean = new MaxAndMin();
+        bean.setStringValue("ストリング文字列です。"); 
+        bean.setIntValue(-9); // -10より大きいからOK
+        bean.setBigDecimalValue(new BigDecimal("3.5")); // 範囲内だからOK
+
+        Set<ConstraintViolation<MaxAndMin>> violations = SCMValidator.validate(bean);
 
 		if(violations.size() > 0){
 			for (ConstraintViolation<MaxAndMin> violation : violations) {
@@ -132,3 +138,4 @@ public @interface UserId {
 //				System.out.println(violation.getPropertyPath()); // DTOとかのjavaのフィールド名
 			}
 		}
+        assertThat(SCMValidator.validate(bean).size(), is(1));
