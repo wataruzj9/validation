@@ -27,3 +27,42 @@
 			<artifactId>javax.el</artifactId>
 			<version>2.2.4</version>
 		</dependency>
+
+
+
+package jp.co.softbank.salesscm.common.validation.anotation;
+
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.CONSTRUCTOR;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Retention(RUNTIME)
+@Documented
+@Constraint(validatedBy = {})
+@NotNull(message = "{myKeys.NotNull}") // 独自メッセージ定義
+@Size(max=10)
+public @interface NotNullAndSize10 {
+    String message() default "{org.yamkazu.jsr303_samples.customvalidator.UserId.message}";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+    @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+    @Retention(RUNTIME)
+    @Documented
+    @interface List {
+        NotNullAndSize10[] value();
+    }
+}
