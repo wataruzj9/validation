@@ -139,3 +139,23 @@ public @interface UserId {
 			}
 		}
         assertThat(SCMValidator.validate(bean).size(), is(1));
+
+
+
+
+package jp.co.softbank.salesscm;
+
+import javax.validation.constraints.Size;
+
+
+public class HogeBean {
+    @Size(max=10)
+    String stringValue;
+    
+    public String getStringValue() {
+		return stringValue;
+	}
+	public void setStringValue(String stringValue) {
+		this.stringValue = stringValue;
+	}
+}
