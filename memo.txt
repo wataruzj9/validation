@@ -159,3 +159,30 @@ public class HogeBean {
 		this.stringValue = stringValue;
 	}
 }
+
+
+
+@IsNumber	プロパティ (文字列)	数値のみであるかどうかをチェックします。0～9以外の文字列が使用されている場合にエラー。	custum.validation.IsNumber.message	半角数字のみで入力して下さい。
+@IsZenkaku	プロパティ (文字列)	全角のみであるかどうかをチェックします。全角以外の文字列が使用されている場合にエラー。	custum.validation.IsZenkaku.message	全角のみで入力して下さい。
+@IsZenkakuKana	プロパティ (文字列)	全角カナのみであるかどうかをチェックします。全角カナ以外の文字列が使用されている場合にエラー。	custum.validation.IsZenkakuKana.message	全角カタカナのみで入力して下さい。
+@IsHankaku	プロパティ (文字列)	半角のみであるかどうかをチェックします。半角以外の文字列が使用されている場合にエラー。	custum.validation.IsHankaku.message	半角のみで入力して下さい。
+@IsHankakuEisu	プロパティ (文字列)	半角英数のみであるかどうかをチェックします。半角英数以外の文字列が使用されている場合にエラー。	custum.validation.IsHankakuEisu.message	半角英数のみで入力して下さい。
+@IsHankakuEisuKigo	プロパティ (文字列)	半角英数記号のみであるかどうかをチェックします。半角英数記号以外の文字列が使用されている場合にエラー。	custum.validation.IsHankakuEisuKigo.message	半角英文字数字記号のみ入力して下さい。
+@IsDate	プロパティ (文字列)	日付であるかどうかをチェックします。日付が妥当でない場合にエラー。	custum.validation.IsDate.message	正しい日付で入力して下さい。
+@IsTelAll	プロパティ (文字列)	電話番号(全般)であるかどうかをチェックします。電話番号(全般)の形式に当てはまらない場合にエラー。	custum.validation.IsTelAll.message	電話番号が不正です。
+@IsTelNumber	プロパティ (文字列)	固定電話番号であるかどうかをチェックします。固定電話番号の形式に当てはまらない場合にエラー。	custum.validation.IsTelNumber.message	固定電話番号が不正です。
+@IsTelPhone	プロパティ (文字列)	携帯電話番号であるかどうかをチェックします。携帯電話番号の形式に当てはまらない場合にエラー。	custum.validation.IsTelPhone.message	携帯電話番号が不正です。
+@IsPost	プロパティ (文字列)	郵便番号であるかどうかをチェックします。郵便番号の形式に当てはまらない場合にエラー。	custum.validation.IsPost.message	郵便番号は３桁と-４桁の数値で入力して下さい
+
+
+custum.validation.IsNumber.message	半角数字のみで入力して下さい。
+custum.validation.IsZenkaku.message	全角のみで入力して下さい。
+custum.validation.IsZenkakuKana.message	全角カタカナのみで入力して下さい。
+custum.validation.IsHankaku.message	半角のみで入力して下さい。
+custum.validation.IsHankakuEisu.message	半角英数のみで入力して下さい。
+custum.validation.IsHankakuEisuKigo.message	半角英文字数字記号のみ入力して下さい。
+custum.validation.IsDate.message	正しい日付で入力して下さい。
+custum.validation.IsTelAll.message	電話番号が不正です。
+custum.validation.IsTelNumber.message	固定電話番号が不正です。
+custum.validation.IsTelPhone.message	携帯電話番号が不正です。
+custum.validation.IsPost.message	郵便番号は３桁と-４桁の数値で入力して下さい
